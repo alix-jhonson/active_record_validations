@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  validates :email, confirmation: true
-  validates :email_confirmation, presence: true
+  validates :legacy_code, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
 
 end
