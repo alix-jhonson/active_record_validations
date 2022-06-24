@@ -1,13 +1,9 @@
 class Person < ActiveRecord::Base
-  validates :name, presence: true, length: { minimum: 3 }
+def a_method_used_for_validation_purposes
+    errors.add(:name, "cannot contain the characters !@#%*()_-+=")
+  end
 end
-person = Person.new(name: "John Doe")
-person.valid?
+person = Person.create(name: "!@#")
 person.errors[:name]
-person = Person.new(name: "JD")
-person.valid?
-person.errors[:name]
-person = Person.new
-person.valid?
-person.errors[:name]
+person.errors.full_messages
 
