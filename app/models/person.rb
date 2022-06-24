@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-validates :password, confirmation: true,
-    unless: Proc.new { |a| a.password.blank? }
+  validates :surname, presence: true, if: "name.nil?"
+
 end
 
