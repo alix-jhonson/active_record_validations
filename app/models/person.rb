@@ -1,4 +1,4 @@
 class Person < ActiveRecord::Base
-  validates :name, presence: true
+  validates :term_of_service, acceptance: { message: 'must be abided' }
 
 end
