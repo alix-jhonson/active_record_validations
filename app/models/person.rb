@@ -1,3 +1,4 @@
 class Person < ActiveRecord::Base
-  validates :email, uniqueness: true
+  validates :name, uniqueness: { scope: :year,
+    message: "should happen once per year" }
 end
