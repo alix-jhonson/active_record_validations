@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
-  validates :name, presence: { strict: true }
+validates :password, confirmation: true,
+    unless: Proc.new { |a| a.password.blank? }
 end
-Person.new.valid?
+
