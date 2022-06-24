@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
-  validates :surname, presence: true, if: "name.nil?"
+  with_options if: :is_bio? do |bio|
+    admin.validates :password, length: { minimum: 10 }
+    admin.validates :email, presence: true
 
 end
 
