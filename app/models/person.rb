@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :roles
-  validates_associated :roles
+  validates :email, uniqueness: true, on: :create
+    validates :age, numericality: true, on: :update
+     validates :name, presence: true
 end
