@@ -1,5 +1,10 @@
 class Person < ActiveRecord::Base
-  def a_method_used_for_validation_purposes
-    errors[:base] << "This person is invalid because ..."
-     end
-       end
+  validates :name, presence: true, length: { minimum: 3 }
+    end
+person = Person.new
+person.errors[:name]
+person.errors.clear
+person.errors.empty?
+p.save
+p.errors[:name]
+
